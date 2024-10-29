@@ -1,0 +1,35 @@
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-stacktrace: always
+
+app:
+  config:
+    name: '@project.name@'
+    version: '@project.version@'
+
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 500MB
+      max-request-size: 500MB
+  jpa:
+    show-sql: ${SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  data:
+    web:
+      pageable:
+        default-page: 0
+        default-page-size: 20
+        max-page-size: 50
+
+  #configurando cor no log
+  output:
+    ansi:
+      enabled: always

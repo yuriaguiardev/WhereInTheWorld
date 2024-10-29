@@ -7,36 +7,52 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table (name = "tb_user")
-public class Country implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
+@Table (name = "TB_COUNTRY")
+public class Country  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "ID")
+    @Column (name = "ID_COUNTRY")
     private Long id;
-    @Column (name = "NAME")
+
+    @Column (name = "NM_COUNTRY")
     private String name;
-    @Column (name = "REGION")
+
+    @Column (name = "NM_REGION")
     private String region;
-    @Column (name = "POPULATION")
+
+    @Column (name = "QT_POPULATION")
     private String population;
-    @Column (name = "CAPITAL")
+
+    @Column (name = "NM_CAPITAL")
     private String capital;
-    @Column (name = "SIGLA")
+
+    @Column (name = "SG_COUNTRY")
     private String sigla;
+
+    @Lob
+    @Column (name ="BI_FLAG")
+    private byte[] biFlag;
 
     public Country() {
     }
 
-    public Country(Long id, String name, String region, String population, String capital, String sigla) {
+    public Country(Long id, String name, String region, String population, String capital, String sigla, byte[] biFlag) {
         this.id = id;
         this.name = name;
         this.region = region;
         this.population = population;
         this.capital = capital;
         this.sigla = sigla;
+        this.biFlag = biFlag;
+    }
+
+    public byte[] getBiFlag() {
+        return biFlag;
+    }
+
+    public void setFlag(byte[] biFlag) {
+        this.biFlag = biFlag;
     }
 
     public Long getId() {

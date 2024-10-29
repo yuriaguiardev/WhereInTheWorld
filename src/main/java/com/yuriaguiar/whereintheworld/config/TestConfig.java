@@ -17,9 +17,6 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Country c1 = new Country(null,"Brasil","America do Sul","100", "Brasilia", "BR");
-        Country c2 = new Country(null, "Argentina", "America do Sul", "100", "Buenos Aires", "AR");
 
-        userRepository.saveAll(Arrays.asList(c1,c2));
     }
 }
